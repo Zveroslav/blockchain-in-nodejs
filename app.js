@@ -6,11 +6,11 @@ class Block {
     this.timestamp = timestamp;
     this.data = data;
     this.perviousHash = previousHash;
-    this.hash = '';
+    this.hash = this.calculateHash();
   }
 
   calculateHash () {
-
+    return SHA256(this.index + this.perviousHash + this.timestamp + JSON.stringify(this.data) ).toString()
   }
 }
 
